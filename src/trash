@@ -1,0 +1,56 @@
+import React, { useState } from "react";
+import { Synth, Part, Transport } from "tone";
+
+const MusicPlayer = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const MainArray = [
+    "Bb2:2n",
+    "Bb2:2n",
+    "Bb2:2n",
+    "Bb2:4n",
+    "A2:4n",
+    "G2:4n",
+    "A2:2n",
+    "A2:2n",
+    "A2:2n",
+    "G2:4n",
+    "F#2:4n",
+    "G2:4n",
+    "G2:4n",
+    "G2:4n",
+    "G#2:4n",
+    "G#2:4n",
+    "G2:2n",
+    "D#2:2n",
+    "D#2:2n",
+    "G2:4n",
+    "A2:4n",
+  ];
+
+  const playMusic = () => {
+    const synth = new Synth().toDestination();
+    const part = new Part((time, note) => {
+      synth.triggerAttackRelease(note.split(":")[0], note.split(":")[1], time);
+    }, MainArray).start(); // <-- Change notesArray to MainArray
+
+    if (!isPlaying) {
+      Transport.start();
+      setIsPlaying(true);
+    } else {
+      Transport.stop();
+      Transport.cancel();
+      setIsPlaying(false);
+    }
+  };
+
+  return (
+    <div>
+      <button onClick={playMusic}>
+        {isPlaying ? "Stop Music" : "Play Music"}
+      </button>
+    </div>
+  );
+};
+
+export default MusicPlayer;
