@@ -1,3 +1,16 @@
+:root {
+  --shape-scale: 1;
+  --color-scale: firebrick;
+}
+
+.shape {
+  width: 200px;
+  height: 200px;
+  background-color: aliceblue;
+  transform: scale(var(--shape-scale));
+  background-color: var(--color-scale);
+  transition: 0.5s;
+}
 .App {
   text-align: center;
 }

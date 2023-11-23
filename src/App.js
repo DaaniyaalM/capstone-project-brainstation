@@ -1,65 +1,68 @@
 import React, { useState } from "react";
 import * as Tone from "tone";
-import music from "./data/mario.json";
-
+import music from "./data/main1.json";
+import music2 from "./data/cadence1.json";
+import "./App.css";
 console.log(music.tracks[0].notes);
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const MainArray = [
-    ["0", "Bb4"],
-    ["0:2", "Bb4"],
-    ["0:4", "Fb3"],
-    ["0:5", "Bb4"],
-    ["0:6", "A4"],
-    ["1:0", "G4"],
-    ["1:2", "A4"],
-    // "A2:2n",
-    // "A2:2n",
-    // "G2:4n",
-    // "F#2:4n",
-    // "G2:4n",
-    // "G2:4n",
-    // "G2:4n",
-    // "G#2:4n",
-    // "G#2:4n",
-    // "G2:2n",
-    // "D#2:2n",
-    // "D#2:2n",
-    // "G2:4n",
-    // "A2:4n",
-  ];
+  const MainArray = [];
 
-  const playMusic = () => {
-    const synth = new Tone.Synth().toDestination();
+  const playPart = (musicArray) => {
+    const synth = new Tone.Synth({}).toDestination();
     const part = new Tone.Part((time, note) => {
-      synth.triggerAttackRelease(note.name, note.duration, note.time);
-    }, music.tracks[0].notes).start(); // <-- Change notesArray to MainArray
-    // if (!isPlaying) {
+      document.documentElement.style.setProperty("--shape-scale", 5);
+      document.documentElement.style.setProperty("--color-scale", "blue");
+      setTimeout(() => {
+        document.documentElement.style.setProperty("--shape-scale", 1);
+        document.documentElement.style.setProperty(
+          "--color-scale",
+          "firebrick"
+        );
+      }, 100);
 
-    // const osc = new Tone.Oscillator(440, "sine").toDestination().start();
+      const now = Tone.now();
+      synth.triggerAttackRelease(note.name, note.duration, note.time);
+    }, musicArray).start(0);
+
     Tone.Transport.start();
     setIsPlaying(true);
-
-    // } else {
-    //   Tone.Transport.stop();
-    //   Tone.Transport.cancel();
-    //   setIsPlaying(false);
-    // }
 
     if (Tone.context.state !== "running") {
       Tone.context.resume();
     }
   };
 
+  const getRandomMusicArray = (arrayOfChoices) => {
+    const randomIndex = Math.floor(Math.random() * arrayOfChoices.length); // Change this one based on the number of arrays I am putting in(*x).
+
+    return arrayOfChoices[randomIndex];
+    // return randomIndex === 0 ? music2.tracks[0].notes : music.tracks[0].notes; // I would just add more music tracks here corresponding to the main category
+  };
+
+  // this works but it doesn't do what I want because it's randomizing the whole thing. I need to separate my randomizing 1 for each category of time position. For example, 3 starter arrays that can be chosen randomly for one "getRandomMusicArray", then I follow up with x# of 2nd tier arrays, then I follow up with main array again let a=main and all other variables= some cadence, the pattern would be: a b a c a d a e a f a g a h a i a j a k a l etc etc
+  const playMusic = () => {
+    const randomizedArray = getRandomMusicArray([
+      music2.tracks[0].notes,
+      music.tracks[0].notes,
+    ]);
+    console.log(randomizedArray);
+    // create a new const for a different set of randommusic arrays
+    playPart([...randomizedArray, ...randomizedArray]);
+    //Can I do that here? If I create the second array to pull its information from a different file set? as in randomizing main1 main2 and main 3 inside a RandomMusicArray, and the same for my next set and then playPart(newRandomizedArray);
+  };
   return (
     <div>
       <button onClick={playMusic}>
         {isPlaying ? "Stop Music" : "Play Music"}
       </button>
+      <div className="shape"></div>
     </div>
   );
 };
 
 export default MusicPlayer;
+
+// for each note move forward 1
