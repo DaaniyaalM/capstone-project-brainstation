@@ -4,39 +4,52 @@ import main1 from "./data/main1.json";
 import cadence1 from "./data/cadence1.json";
 import main2 from "./data/main2.json";
 import "./App.css";
-import { useApp } from "@pixi/react";
+import { render, useApp } from "@pixi/react";
 import { BlurFilter } from "pixi.js";
 import { Stage, Container, Sprite, Text } from "@pixi/react";
 import { useMemo } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// import Home from "./components/Home";
+// import About from "./components/About";
+import MyBunny from "./Components/MyBunny";
 
 console.log(main1.tracks[0].notes);
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [trigger, setTrigger] = useState(false);
 
-  const MainArray = [];
-
+  // const [i, seti] = usestate(0);
+  const synth = new Tone.Synth({}).toDestination();
   const playPart = (musicArray) => {
-    const synth = new Tone.Synth({}).toDestination();
     const part = new Tone.Part((time, note) => {
-      document.documentElement.style.setProperty("--shape-scale", 5);
-      document.documentElement.style.setProperty("--color-scale", "blue");
-      setTimeout(() => {
-        document.documentElement.style.setProperty("--shape-scale", 1);
-        document.documentElement.style.setProperty(
-          "--color-scale",
-          "firebrick"
-        );
-      }, 100);
-      part.loopEnd = "8n";
-      part.loop = true;
-      const now = Tone.now();
-      synth.triggerAttackRelease(note.name, note.duration, note.time);
-    }, musicArray).start(0);
+      setTrigger((prevValue) => {
+        // console.log(prevValue);
+        return prevValue + 1;
+      });
 
+      // console.log("triggered");
+      // document.documentElement.style.setProperty("--shape-scale", 5);
+      // document.documentElement.style.setProperty("--color-scale", "blue");
+      // setTimeout(() => {
+      //   document.documentElement.style.setProperty("--shape-scale", 1);
+      //   document.documentElement.style.setProperty(
+      //     "--color-scale",
+      //     "firebrick"
+      //   );
+      // }, 100);
+      // console.log(part.progress);
+      if (part.progress == 1) {
+        console.log("part finished");
+      }
+
+      // const now = Tone.now();
+      synth.triggerAttackRelease(note.name, note.duration, note.time);
+      console.log(part.progress);
+    }, musicArray).start(0);
     Tone.Transport.start();
 
-    setIsPlaying(true);
+    setIsPlaying((isPlaying) => !isPlaying);
 
     if (Tone.context.state !== "running") {
       Tone.context.resume();
@@ -60,26 +73,45 @@ const MusicPlayer = () => {
       cadence1.tracks[0].notes,
       // cadence2.tracks[0].notes,
     ]);
-    console.log(randomizedArray);
+    console.log(randomizedArray2);
     // create a new const for a different set of randommusic arrays
     playPart([...randomizedArray, ...randomizedArray]);
-    playPart([...randomizedArray2, ...randomizedArray2]); //<-- the ellipses are called a "spread operator"
+    // playPart([...randomizedArray2, ...randomizedArray2]);
+    //<-- the ellipses are called a "spread operator"
     // const loop = new Tone.Loop((playPart) => {
     // triggered every eighth note.
     // }, "47.5").start(0);
     Tone.Transport.start();
     //Can I do that here? If I create the second array to pull its information from a different file set? as in randomizing main1 main2 and main 3 inside a RandomMusicArray, and the same for my next set and then playPart(newRandomizedArray);
   };
-  return (
-    <div>
-      <button class="glow-on-hover" onClick={playMusic}>
-        {isPlaying ? "Stop Music" : "Play Music"}
-      </button>
-      <div className="shape"></div>
-    </div>
-  );
-};
 
+  // render() {
+  return (
+    <>
+      <Stage className="stage" options={{ backgroundAlpha: 0 }}>
+        <Container x={100} y={150}>
+          <MyBunny trigger={trigger} />
+        </Container>
+      </Stage>
+
+      <Router>
+        <div>
+          {/* <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} /> */
+          /* <landing page /> */}
+        </div>
+        <div>
+          <button className="glow-on-hover" onClick={playMusic}>
+            {isPlaying ? "Stop Music" : "Play Music"}
+          </button>
+
+          {/* <div className="shape"></div> */}
+        </div>
+      </Router>
+    </>
+  );
+  // };
+};
 export default MusicPlayer;
 
 // for each note move forward 1
