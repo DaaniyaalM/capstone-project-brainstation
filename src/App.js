@@ -21,39 +21,43 @@ const MusicPlayer = () => {
 
   // const [i, seti] = usestate(0);
   const synth = new Tone.Synth({}).toDestination();
+
   const playPart = (musicArray) => {
+    let currentTime = 0;
+
     const part = new Tone.Part((time, note) => {
       setTrigger((prevValue) => {
         // console.log(prevValue);
         return prevValue + 1;
       });
-
-      // console.log("triggered");
-      // document.documentElement.style.setProperty("--shape-scale", 5);
-      // document.documentElement.style.setProperty("--color-scale", "blue");
-      // setTimeout(() => {
-      //   document.documentElement.style.setProperty("--shape-scale", 1);
-      //   document.documentElement.style.setProperty(
-      //     "--color-scale",
-      //     "firebrick"
-      //   );
-      // }, 100);
-      // console.log(part.progress);
-      if (part.progress == 1) {
-        console.log("part finished");
+      // Update time only if it's greater than the current time
+      if (time > currentTime) {
+        currentTime = time;
+      } else {
+        // If time is not greater, add a small offset
+        currentTime += 0.01;
       }
 
-      // const now = Tone.now();
-      synth.triggerAttackRelease(note.name, note.duration, note.time);
+      // Trigger the synth
+      synth.triggerAttackRelease(note.name, note.duration, currentTime);
+
+      // Log progress
       console.log(part.progress);
     }, musicArray).start(0);
+
     Tone.Transport.start();
 
-    setIsPlaying((isPlaying) => !isPlaying);
+    setIsPlaying(true);
 
     if (Tone.context.state !== "running") {
       Tone.context.resume();
     }
+  };
+
+  const StopMusic = () => {
+    console.log("aaaa");
+    Tone.Transport.stop();
+    setIsPlaying(false);
   };
 
   const getRandomMusicArray = (arrayOfChoices) => {
@@ -75,7 +79,11 @@ const MusicPlayer = () => {
     ]);
     console.log(randomizedArray2);
     // create a new const for a different set of randommusic arrays
-    playPart([...randomizedArray, ...randomizedArray]);
+    try {
+      playPart([...randomizedArray, ...randomizedArray]);
+    } catch (error) {
+      console.log(error);
+    }
     // playPart([...randomizedArray2, ...randomizedArray2]);
     //<-- the ellipses are called a "spread operator"
     // const loop = new Tone.Loop((playPart) => {
@@ -101,7 +109,10 @@ const MusicPlayer = () => {
           /* <landing page /> */}
         </div>
         <div>
-          <button className="glow-on-hover" onClick={playMusic}>
+          <button
+            className="glow-on-hover"
+            onClick={isPlaying ? StopMusic : playMusic}
+          >
             {isPlaying ? "Stop Music" : "Play Music"}
           </button>
 
