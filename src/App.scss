@@ -142,4 +142,7 @@ body {
 
 .stage {
   background-color: #ff7300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

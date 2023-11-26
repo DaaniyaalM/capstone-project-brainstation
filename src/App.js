@@ -3,12 +3,13 @@ import * as Tone from "tone";
 import main1 from "./data/main1.json";
 import cadence1 from "./data/cadence1.json";
 import main2 from "./data/main2.json";
-import "./App.css";
+import "./App.scss";
 import { render, useApp } from "@pixi/react";
 import { BlurFilter } from "pixi.js";
 import { Stage, Container, Sprite, Text } from "@pixi/react";
 import { useMemo } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar";
 // import Home from "./components/Home";
 // import About from "./components/About";
 import MyBunny from "./Components/MyBunny";
@@ -84,7 +85,11 @@ const MusicPlayer = () => {
     } catch (error) {
       console.log(error);
     }
-    // playPart([...randomizedArray2, ...randomizedArray2]);
+    try {
+      playPart([...randomizedArray2, ...randomizedArray2]);
+    } catch (error) {
+      console.log(error);
+    }
     //<-- the ellipses are called a "spread operator"
     // const loop = new Tone.Loop((playPart) => {
     // triggered every eighth note.
@@ -96,32 +101,31 @@ const MusicPlayer = () => {
   // render() {
   return (
     <>
-      <Stage className="stage" options={{ backgroundAlpha: 0 }}>
-        <Container x={100} y={150}>
-          <MyBunny trigger={trigger} />
-        </Container>
-      </Stage>
-
       <Router>
         <div>
-          {/* <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} /> */
-          /* <landing page /> */}
-        </div>
-        <div>
-          <button
-            className="glow-on-hover"
-            onClick={isPlaying ? StopMusic : playMusic}
-          >
-            {isPlaying ? "Stop Music" : "Play Music"}
-          </button>
+          <Navbar />
 
-          {/* <div className="shape"></div> */}
+          {/* Define your routes
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} /> */}
         </div>
       </Router>
+
+      <div className="stage">
+        <Stage className="stage" options={{ backgroundAlpha: 0 }}>
+          <Container x={100} y={150}>
+            <MyBunny trigger={trigger} />
+          </Container>
+        </Stage>
+        <button
+          className="glow-on-hover"
+          onClick={isPlaying ? StopMusic : playMusic}
+        >
+          {isPlaying ? "Stop Music" : "Play Music"}
+        </button>
+      </div>
     </>
   );
-  // };
 };
 export default MusicPlayer;
 
