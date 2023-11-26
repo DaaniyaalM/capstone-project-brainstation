@@ -113,7 +113,7 @@ const MusicPlayer = () => {
 
       <div className="stage">
         <Stage className="stage" options={{ backgroundAlpha: 0 }}>
-          <Container x={100} y={150}>
+          <Container x={1} y={150}>
             <MyBunny trigger={trigger} />
           </Container>
         </Stage>

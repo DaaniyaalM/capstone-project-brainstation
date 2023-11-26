@@ -60,7 +60,10 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* background: #000; */
+  background: #e77;
+  background-image: url("./images/nebulabackground.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .glow-on-hover {
@@ -141,8 +144,9 @@ body {
 }
 
 .stage {
-  background-color: #ff7300;
+  background-color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 1000px;
 }
