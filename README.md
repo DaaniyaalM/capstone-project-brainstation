@@ -39,25 +39,41 @@ Data Endpoint ("/data"):
 Method: GET
 
 Description: Responds with JSON data containing information from the cadence1, main1, and main2 variables.
-Auth
-Not needed
+
 Roadmap
-Sprint Tasks
+
 Set up the project structure
+
 Implement the arpeggio generation logic
+
 Integrate Tone.js for sound production
+
 Convert .midi files to JSON using Tone.js converter
+
 Categorize arpeggios based on time constraints
+
 Develop the user interface for About and Music Player sections
+
 Test and debug functionalities
+
 Timeframes
+
 Week 1: Do everything for Sunday
+
 Week 2: Do everything extra for demo-day on Thursday
+
 Nice-to-haves
+
 Additional music-related features such as: 
+
 electronic keyboard for people to make their own arpeggios to add to the system
+
 Enhanced user interface:
+
 Choosing a sprite of their choice to move along with the notes
+
 Adding more ways in which the sprite can move 
+
 User accounts for saving preferences- can use auth here 
+
 This breakdown outlines the key aspects of your project based on the provided information. Feel free to adjust the details and add more specific information as needed.
