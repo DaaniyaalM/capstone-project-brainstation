@@ -76,4 +76,3 @@ Adding more ways in which the sprite can move
 
 User accounts for saving preferences- can use auth here 
 
-This breakdown outlines the key aspects of your project based on the provided information. Feel free to adjust the details and add more specific information as needed.
