@@ -1,15 +1,19 @@
 Overview
 
 What is your app?
+
 This project is an Artificial Intelligence music player that explores a unique approach to generating music by utilizing arpeggios instead of traditional scale-based methods. It also incorporates the Tone.js library for sound production.
 
 Problem
+
 The initial challenge was to find an innovative way to generate music that simulates human processes. The initial idea of using modal music theory was abandoned due to existing solutions. The project pivoted to creating a system based on arpeggios. The need for a sound library led to the adoption of Tone.js. The project addresses the challenge of organizing and playing .midi files converted to JSON format.
 
 User Profile
+
 Users of this app are individuals interested in exploring AI-generated music patterns. They can interact with the app to understand the novel approach to music generation. Considerations include users with varying levels of musical knowledge.
 
 Features
+
 Generation of music using arpeggios
 Integration with the Tone.js library for sound production
 Conversion of .midi files to JSON format
@@ -17,11 +21,10 @@ Categorization of arpeggios based on time constraints
 User interface with About and Music Player sections
 Implementation
 Tech Stack
+
 JavaScript for app logic
 Tone.js library for sound production
-Potentially other front-end libraries/frameworks (not specified)
-APIs
-No external APIs mentioned
+reactpixi for animations
 Sitemap
 Home
 About
@@ -34,6 +37,7 @@ Endpoints
 Data Endpoint ("/data"):
 
 Method: GET
+
 Description: Responds with JSON data containing information from the cadence1, main1, and main2 variables.
 Auth
 Not needed
