@@ -1,4 +1,5 @@
 Overview
+
 What is your app?
 This project is an Artificial Intelligence music player that explores a unique approach to generating music by utilizing arpeggios instead of traditional scale-based methods. It also incorporates the Tone.js library for sound production.
 
