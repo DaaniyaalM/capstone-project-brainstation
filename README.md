@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+Overview
+What is your app?
+This project is an Artificial Intelligence music player that explores a unique approach to generating music by utilizing arpeggios instead of traditional scale-based methods. It also incorporates the Tone.js library for sound production.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Problem
+The initial challenge was to find an innovative way to generate music that simulates human processes. The initial idea of using modal music theory was abandoned due to existing solutions. The project pivoted to creating a system based on arpeggios. The need for a sound library led to the adoption of Tone.js. The project addresses the challenge of organizing and playing .midi files converted to JSON format.
 
-## Available Scripts
+User Profile
+Users of this app are individuals interested in exploring AI-generated music patterns. They can interact with the app to understand the novel approach to music generation. Considerations include users with varying levels of musical knowledge.
 
-In the project directory, you can run:
+Features
+Generation of music using arpeggios
+Integration with the Tone.js library for sound production
+Conversion of .midi files to JSON format
+Categorization of arpeggios based on time constraints
+User interface with About and Music Player sections
+Implementation
+Tech Stack
+JavaScript for app logic
+Tone.js library for sound production
+Potentially other front-end libraries/frameworks (not specified)
+APIs
+No external APIs mentioned
+Sitemap
+Home
+About
+Music Player
+Mockups
+Visuals of the About and Music Player screens (not provided)
+Data
+JSON format for storing arpeggios and music data
+Endpoints
+Data Endpoint ("/data"):
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Method: GET
+Description: Responds with JSON data containing information from the cadence1, main1, and main2 variables.
+Auth
+Not needed
+Roadmap
+Sprint Tasks
+Set up the project structure
+Implement the arpeggio generation logic
+Integrate Tone.js for sound production
+Convert .midi files to JSON using Tone.js converter
+Categorize arpeggios based on time constraints
+Develop the user interface for About and Music Player sections
+Test and debug functionalities
+Timeframes
+Week 1: Do everything for Sunday
+Week 2: Do everything extra for demo-day on Thursday
+Nice-to-haves
+Additional music-related features such as: 
+electronic keyboard for people to make their own arpeggios to add to the system
+Enhanced user interface:
+Choosing a sprite of their choice to move along with the notes
+Adding more ways in which the sprite can move 
+User accounts for saving preferences- can use auth here 
+This breakdown outlines the key aspects of your project based on the provided information. Feel free to adjust the details and add more specific information as needed.
