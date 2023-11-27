@@ -10,8 +10,8 @@ const Home = () => {
       <p className="landing-text">
         Welcome to my artificial intelligence music player! This project will
         showcase a novel way to think about music and patterns and the potential
-        for AI to create music. Click About to learn more or Music player if you
-        want to dive right into it.
+        for AI to create music. Click About to learn more or on Music Player if
+        you want to dive right into it.
       </p>
     </div>
   );
