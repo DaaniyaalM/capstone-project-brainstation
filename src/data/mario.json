@@ -85,15 +85,6 @@
         {
           "duration": 0.15763873125,
           "durationTicks": 227,
-          "midi": 66,
-          "name": "F#4",
-          "ticks": 0,
-          "time": 0,
-          "velocity": 0.6299212598425197
-        },
-        {
-          "duration": 0.15763873125,
-          "durationTicks": 227,
           "midi": 76,
           "name": "E5",
           "ticks": 0,

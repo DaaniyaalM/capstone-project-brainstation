@@ -1,0 +1,70 @@
+{
+  "header": {
+    "keySignatures": [
+      {
+        "key": "C",
+        "scale": "major",
+        "ticks": 21120
+      }
+    ],
+    "meta": [],
+    "name": "Classic Electric Piano",
+    "ppq": 480,
+    "tempos": [
+      {
+        "bpm": 120,
+        "ticks": 21120
+      }
+    ],
+    "timeSignatures": [
+      {
+        "ticks": 21120,
+        "timeSignature": [4, 4],
+        "measures": 0
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "channel": 0,
+      "controlChanges": {},
+      "pitchBends": [],
+      "instrument": {
+        "family": "piano",
+        "number": 0,
+        "name": "acoustic grand piano"
+      },
+      "name": "Classic Electric Piano",
+      "notes": [
+        {
+          "duration": 0.5104166666666679,
+          "durationTicks": 490,
+          "midi": 56,
+          "name": "G#3",
+          "ticks": 21500,
+          "time": 0.395833333333332,
+          "velocity": 0.8110236220472441
+        },
+        {
+          "duration": 0.435416666666665,
+          "durationTicks": 418,
+          "midi": 55,
+          "name": "G3",
+          "ticks": 22555,
+          "time": 1.494791666666668,
+          "velocity": 0.8110236220472441
+        },
+        {
+          "duration": 0.6541666666666686,
+          "durationTicks": 628,
+          "midi": 56,
+          "name": "G#3",
+          "ticks": 22973,
+          "time": 1.930208333333333,
+          "velocity": 0.8110236220472441
+        }
+      ],
+      "endOfTrackTicks": 44041
+    }
+  ]
+}
