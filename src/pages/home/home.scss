@@ -1,9 +1,15 @@
 .landing-text {
   background-color: black;
   color: white;
+  font-size: x-large;
 }
 
 .section__header {
   color: white;
   background-color: black;
+}
+.HomePageSetUp {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
 }

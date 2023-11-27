@@ -1,6 +1,7 @@
 .Main {
-  &__container {
+  &_container {
     display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: black;
     height: 100vh;

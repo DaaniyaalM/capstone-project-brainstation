@@ -2,9 +2,9 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "../about/about.scss";
 const About = () => {
   return (
-    <div className="Main_container">
+    <div className="Main__container">
+      <Navbar />
       <div className="about__container">
-        <Navbar />
         <h1 className="about__header">How it works:</h1>
         <p className="about__text">
           I started this project by brainstorming different ways in which I
@@ -40,6 +40,23 @@ const About = () => {
           src="images/aiftomidi.png"
           alt="aiftomidi"
         />
+        <h1 className="about__header">midi to JSON conversion:</h1>
+        <img
+          className="garageband"
+          src="images/miditojson.png"
+          alt="miditojson"
+        />
+        <p className="about__text">
+          After my files were all converted into the ideal formats I had to to
+          figure out how to put them into the arrays that I wanted and get them
+          to play in the order I wanted. Unlike in the first array I started
+          with, the JSON files had a particular time at which they started, and
+          this meant that the sequences I created had to be at the same starting
+          time. So I created a few arpeggios for T1, a few for T2, and a few for
+          T3. Whichever arpeggio is randomized at T1 shares the same starting
+          time as the rest of the arpeggios in that category. The same goes for
+          the other time categories of T2 and T3.
+        </p>
       </div>
     </div>
   );
