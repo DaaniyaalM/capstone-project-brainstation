@@ -3,8 +3,8 @@ import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import MusicPlayer from "./pages/musicplayer";
-import Home from "./pages/home";
-import About from "./pages/about";
+import Home from "./pages/home/home";
+import About from "./pages/about/about";
 
 const App = () => {
   return (

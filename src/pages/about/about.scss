@@ -1,0 +1,36 @@
+.Main {
+  &__container {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    height: 100vh;
+  }
+}
+.navbar {
+  width: 100%;
+  &__list {
+    width: 100%;
+    height: fit-content;
+  }
+}
+.about {
+  &__text {
+    color: white;
+    font-size: x-large;
+    background-color: black;
+  }
+
+  &__header {
+    color: white;
+    background-color: black;
+  }
+  &__container {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.garageband {
+  width: 400px;
+}

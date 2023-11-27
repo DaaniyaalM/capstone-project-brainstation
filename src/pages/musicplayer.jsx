@@ -79,7 +79,6 @@ const MusicPlayer = () => {
     const randomizedArray2 = getRandomMusicArray([
       data.cadence1.tracks[0].notes,
     ]);
-    // create a new const for a different set of randommusic arrays
     try {
       playPart([...randomizedArray, ...randomizedArray]);
     } catch (error) {
@@ -90,15 +89,10 @@ const MusicPlayer = () => {
     } catch (error) {
       console.log(error);
     }
-    //<-- the ellipses are called a "spread operator"
-    // const loop = new Tone.Loop((playPart) => {
-    // triggered every eighth note.
-    // }, "47.5").start(0);
+
     Tone.Transport.start();
-    //Can I do that here? If I create the second array to pull its information from a different file set? as in randomizing main1 main2 and main 3 inside a RandomMusicArray, and the same for my next set and then playPart(newRandomizedArray);
   };
 
-  // render() {
   return (
     <div className="stage">
       <Navbar />
@@ -117,5 +111,3 @@ const MusicPlayer = () => {
   );
 };
 export default MusicPlayer;
-
-// for each note move forward 1
